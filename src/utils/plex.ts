@@ -134,9 +134,9 @@ class PlexOAuth {
       reject: (e: Error) => void
     ) => {
       try {
-        // if (!this.pin) {
-        //   throw new Error('Unable to poll when pin is not initialized.');
-        // }
+        if (!this.pin) {
+          throw new Error('Unable to poll when pin is not initialized.');
+        }
 
         const response = await axios.get(
           `https://plex.tv/api/v2/pins/${this.pin.id}`,
