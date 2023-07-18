@@ -1,8 +1,8 @@
 name: 'Support requests'
 
-on:
-  issues:
-    types: [labeled, unlabeled, reopened]
+on: workflow_dispatch
+#  issues:
+#    types: [labeled, unlabeled, reopened]
 
 jobs:
   support:

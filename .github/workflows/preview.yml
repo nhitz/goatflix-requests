@@ -1,9 +1,9 @@
 name: Overseerr Preview
 
-on:
-  push:
-    tags:
-      - 'preview-*'
+on: workflow_dispatch
+#  push:
+#    tags:
+#      - 'preview-*'
 
 jobs:
   build_and_push:

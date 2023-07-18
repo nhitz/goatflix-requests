@@ -1,9 +1,9 @@
 name: Deploy API Docs
 
-on:
-  push:
-    branches:
-      - develop
+on: workflow_dispatch
+#  push:
+#    branches:
+#      - develop
 
 jobs:
   deploy:
