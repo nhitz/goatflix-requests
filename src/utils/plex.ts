@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Bowser from 'bowser';
+import {getSettings} from "@server/lib/settings";
 
 interface PlexHeaders extends Record<string, string> {
   Accept: string;
@@ -55,10 +56,11 @@ class PlexOAuth {
       clientId = uuid;
     }
 
+    const { applicationTitle } = getSettings().main;
     const browser = Bowser.getParser(window.navigator.userAgent);
     this.plexHeaders = {
       Accept: 'application/json',
-      'X-Plex-Product': 'Overseerr',
+      'X-Plex-Product': applicationTitle,
       'X-Plex-Version': 'Plex OAuth',
       'X-Plex-Client-Identifier': clientId,
       'X-Plex-Model': 'Plex OAuth',
@@ -132,9 +134,9 @@ class PlexOAuth {
       reject: (e: Error) => void
     ) => {
       try {
-        if (!this.pin) {
-          throw new Error('Unable to poll when pin is not initialized.');
-        }
+        // if (!this.pin) {
+        //   throw new Error('Unable to poll when pin is not initialized.');
+        // }
 
         const response = await axios.get(
           `https://plex.tv/api/v2/pins/${this.pin.id}`,
