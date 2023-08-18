@@ -18,8 +18,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install dependencies
-        env:
-          HUSKY: 0
         run: yarn
       - name: Lint
         run: yarn lint
