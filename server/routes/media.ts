@@ -23,7 +23,7 @@ mediaRoutes.get('/', async (req, res, next) => {
   const pageSize = req.query.take ? Number(req.query.take) : 20;
   const skip = req.query.skip ? Number(req.query.skip) : 0;
 
-  let statusFilter = undefined;
+  let statusFilter: undefined;
 
   switch (req.query.filter) {
     case 'available':
