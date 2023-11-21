@@ -56,7 +56,7 @@ const UserWebPushSettings = () => {
               webpush: values.types,
             },
           });
-          mutate('/api/v1/settings/public');
+          await mutate('/api/v1/settings/public');
           addToast(intl.formatMessage(messages.webpushsettingssaved), {
             appearance: 'success',
             autoDismiss: true,
@@ -67,7 +67,7 @@ const UserWebPushSettings = () => {
             autoDismiss: true,
           });
         } finally {
-          revalidate();
+          await revalidate();
         }
       }}
     >

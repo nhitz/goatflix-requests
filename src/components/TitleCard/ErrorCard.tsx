@@ -25,8 +25,8 @@ const Error = ({ id, tmdbId, tvdbId, type, canExpand }: ErrorCardProps) => {
 
   const deleteMedia = async () => {
     await axios.delete(`/api/v1/media/${id}`);
-    mutate('/api/v1/media?filter=allavailable&take=20&sort=mediaAdded');
-    mutate('/api/v1/request?filter=all&take=10&sort=modified&skip=0');
+    await mutate('/api/v1/media?filter=allavailable&take=20&sort=mediaAdded');
+    await mutate('/api/v1/request?filter=all&take=10&sort=modified&skip=0');
   };
 
   return (

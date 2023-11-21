@@ -199,9 +199,9 @@ const SettingsServices = () => {
       `/api/v1/settings/${deleteServerModal.type}/${deleteServerModal.serverId}`
     );
     setDeleteServerModal({ open: false, serverId: null, type: 'radarr' });
-    revalidateRadarr();
-    revalidateSonarr();
-    mutate('/api/v1/settings/public');
+    await revalidateRadarr();
+    await revalidateSonarr();
+    await mutate('/api/v1/settings/public');
   };
 
   return (

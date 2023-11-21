@@ -156,7 +156,7 @@ const NotificationsWebhook = () => {
             autoDismiss: true,
           });
         } finally {
-          revalidate();
+          await revalidate();
         }
       }}
     >

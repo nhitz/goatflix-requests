@@ -89,7 +89,7 @@ const UserTelegramSettings = () => {
             autoDismiss: true,
           });
         } finally {
-          revalidate();
+          await revalidate();
         }
       }}
     >

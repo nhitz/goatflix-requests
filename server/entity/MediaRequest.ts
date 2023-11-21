@@ -486,10 +486,10 @@ export class MediaRequest {
         return;
       }
 
-      this.sendNotification(media, Notification.MEDIA_PENDING);
+      await this.sendNotification(media, Notification.MEDIA_PENDING);
 
       if (this.isAutoRequest) {
-        this.sendNotification(media, Notification.MEDIA_AUTO_REQUESTED);
+        await this.sendNotification(media, Notification.MEDIA_AUTO_REQUESTED);
       }
     }
   }
@@ -527,13 +527,13 @@ export class MediaRequest {
         return;
       }
 
-      this.sendNotification(
-        media,
-        this.status === MediaRequestStatus.APPROVED
-          ? autoApproved
-            ? Notification.MEDIA_AUTO_APPROVED
-            : Notification.MEDIA_APPROVED
-          : Notification.MEDIA_DECLINED
+      await this.sendNotification(
+          media,
+          this.status === MediaRequestStatus.APPROVED
+              ? autoApproved
+                  ? Notification.MEDIA_AUTO_APPROVED
+                  : Notification.MEDIA_APPROVED
+              : Notification.MEDIA_DECLINED
       );
 
       if (
@@ -541,7 +541,7 @@ export class MediaRequest {
         autoApproved &&
         this.isAutoRequest
       ) {
-        this.sendNotification(media, Notification.MEDIA_AUTO_REQUESTED);
+        await this.sendNotification(media, Notification.MEDIA_AUTO_REQUESTED);
       }
     }
   }
@@ -549,7 +549,7 @@ export class MediaRequest {
   @AfterInsert()
   public async autoapprovalNotification(): Promise<void> {
     if (this.status === MediaRequestStatus.APPROVED) {
-      this.notifyApprovedOrDeclined(true);
+      await this.notifyApprovedOrDeclined(true);
     }
   }
 
@@ -578,7 +578,7 @@ export class MediaRequest {
         MediaStatus.PARTIALLY_AVAILABLE
     ) {
       media[this.is4k ? 'status4k' : 'status'] = MediaStatus.PROCESSING;
-      mediaRepository.save(media);
+      await mediaRepository.save(media);
     }
 
     if (
@@ -586,7 +586,7 @@ export class MediaRequest {
       this.status === MediaRequestStatus.DECLINED
     ) {
       media[this.is4k ? 'status4k' : 'status'] = MediaStatus.UNKNOWN;
-      mediaRepository.save(media);
+      await mediaRepository.save(media);
     }
 
     /**
@@ -604,7 +604,7 @@ export class MediaRequest {
       media[this.is4k ? 'status4k' : 'status'] === MediaStatus.PENDING
     ) {
       media[this.is4k ? 'status4k' : 'status'] = MediaStatus.UNKNOWN;
-      mediaRepository.save(media);
+      await mediaRepository.save(media);
     }
 
     // Approve child seasons if parent is approved
@@ -641,7 +641,7 @@ export class MediaRequest {
       fullMedia.status4k = MediaStatus.UNKNOWN;
     }
 
-    mediaRepository.save(fullMedia);
+    await mediaRepository.save(fullMedia);
   }
 
   public async sendToRadarr(): Promise<void> {
@@ -848,7 +848,7 @@ export class MediaRequest {
             const requestRepository = getRepository(MediaRequest);
 
             this.status = MediaRequestStatus.FAILED;
-            requestRepository.save(this);
+            await requestRepository.save(this);
 
             logger.warn(
               'Something went wrong sending movie request to Radarr, marking status as FAILED',
@@ -860,7 +860,7 @@ export class MediaRequest {
               }
             );
 
-            this.sendNotification(media, Notification.MEDIA_FAILED);
+            await this.sendNotification(media, Notification.MEDIA_FAILED);
           });
         logger.info('Sent request to Radarr', {
           label: 'Media Request',
@@ -1129,7 +1129,7 @@ export class MediaRequest {
             const requestRepository = getRepository(MediaRequest);
 
             this.status = MediaRequestStatus.FAILED;
-            requestRepository.save(this);
+            await requestRepository.save(this);
 
             logger.warn(
               'Something went wrong sending series request to Sonarr, marking status as FAILED',
@@ -1141,7 +1141,7 @@ export class MediaRequest {
               }
             );
 
-            this.sendNotification(media, Notification.MEDIA_FAILED);
+            await this.sendNotification(media, Notification.MEDIA_FAILED);
           });
         logger.info('Sent request to Sonarr', {
           label: 'Media Request',

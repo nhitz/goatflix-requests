@@ -240,7 +240,7 @@ class WebPushAgent
             );
 
             // Failed to send notification so we need to remove the subscription
-            userPushSubRepository.remove(sub);
+            await userPushSubRepository.remove(sub);
           }
         })
       );

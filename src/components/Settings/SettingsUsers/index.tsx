@@ -85,7 +85,7 @@ const SettingsUsers = () => {
                 },
                 defaultPermissions: values.defaultPermissions,
               });
-              mutate('/api/v1/settings/public');
+              await mutate('/api/v1/settings/public');
 
               addToast(intl.formatMessage(messages.toastSettingsSuccess), {
                 autoDismiss: true,
@@ -97,7 +97,7 @@ const SettingsUsers = () => {
                 appearance: 'error',
               });
             } finally {
-              revalidate();
+              await revalidate();
             }
           }}
         >

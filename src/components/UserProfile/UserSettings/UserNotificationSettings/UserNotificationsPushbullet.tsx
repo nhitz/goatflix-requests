@@ -82,7 +82,7 @@ const UserPushbulletSettings = () => {
             autoDismiss: true,
           });
         } finally {
-          revalidate();
+          await revalidate();
         }
       }}
     >

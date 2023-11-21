@@ -104,7 +104,7 @@ const NotificationsTelegram = () => {
             autoDismiss: true,
           });
         } finally {
-          revalidate();
+          await revalidate();
         }
       }}
     >

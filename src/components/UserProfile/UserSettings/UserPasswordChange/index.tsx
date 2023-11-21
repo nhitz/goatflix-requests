@@ -142,7 +142,7 @@ const UserPasswordChange = () => {
               }
             );
           } finally {
-            revalidate();
+            await revalidate();
             resetForm();
           }
         }}

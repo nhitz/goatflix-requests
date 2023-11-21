@@ -208,7 +208,7 @@ class SonarrAPI extends ServarrBase<{
           });
 
           if (options.searchNow) {
-            this.searchSeries(newSeriesResponse.data.id);
+            await this.searchSeries(newSeriesResponse.data.id);
           }
 
           return newSeriesResponse.data;

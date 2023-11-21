@@ -174,7 +174,7 @@ const SettingsJobs = () => {
         autoDismiss: true,
       }
     );
-    revalidate();
+    await revalidate();
   };
 
   const cancelJob = async (job: Job) => {
@@ -188,7 +188,7 @@ const SettingsJobs = () => {
         autoDismiss: true,
       }
     );
-    revalidate();
+    await revalidate();
   };
 
   const flushCache = async (cache: CacheItem) => {
@@ -200,7 +200,7 @@ const SettingsJobs = () => {
         autoDismiss: true,
       }
     );
-    cacheRevalidate();
+    await cacheRevalidate();
   };
 
   const scheduleJob = async () => {
@@ -232,7 +232,7 @@ const SettingsJobs = () => {
       });
 
       dispatch({ type: 'close' });
-      revalidate();
+      await revalidate();
     } catch (e) {
       addToast(intl.formatMessage(messages.jobScheduleEditFailed), {
         appearance: 'error',

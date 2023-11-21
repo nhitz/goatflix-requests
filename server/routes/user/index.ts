@@ -169,7 +169,7 @@ router.post<
       user: req.user,
     });
 
-    userPushSubRepository.save(userPushSubscription);
+    await userPushSubRepository.save(userPushSubscription);
 
     return res.status(204).send();
   } catch (e) {

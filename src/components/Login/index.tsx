@@ -40,7 +40,7 @@ const Login = () => {
         const response = await axios.post('/api/v1/auth/plex', { authToken });
 
         if (response.data?.id) {
-          revalidate();
+          await revalidate();
         }
       } catch (e) {
         setError(e.response.data.message);

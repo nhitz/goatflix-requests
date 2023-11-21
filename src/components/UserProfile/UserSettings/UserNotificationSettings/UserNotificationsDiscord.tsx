@@ -86,7 +86,7 @@ const UserNotificationsDiscord = () => {
             autoDismiss: true,
           });
         } finally {
-          revalidate();
+          await revalidate();
         }
       }}
     >

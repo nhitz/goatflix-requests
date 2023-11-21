@@ -82,7 +82,7 @@ const Discover = () => {
         autoDismiss: true,
       });
       setIsEditing(false);
-      mutate();
+      await mutate();
     } catch (e) {
       addToast(intl.formatMessage(messages.updatefailed), {
         appearance: 'error',
@@ -100,7 +100,7 @@ const Discover = () => {
         autoDismiss: true,
       });
       setIsEditing(false);
-      mutate();
+      await mutate();
     } catch (e) {
       addToast(intl.formatMessage(messages.resetfailed), {
         appearance: 'error',
