@@ -40,7 +40,10 @@ const useSearchInput = (): SearchObject => {
             ...router.query,
             query: debouncedValue,
           },
-        });
+        })
+            .catch((error) => {
+              console.error(`Error router.replace: ${error}`);
+            })
       } else {
         setLastRoute(router.asPath);
         router

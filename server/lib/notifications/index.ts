@@ -108,7 +108,10 @@ class NotificationManager {
 
     this.activeAgents.forEach((agent) => {
       if (agent.shouldSend()) {
-        agent.send(type, payload);
+        agent.send(type, payload)
+          .catch((error) => {
+            console.error(`Error sending notification: ${error}`);
+            });
       }
     });
   }

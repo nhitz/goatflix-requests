@@ -290,7 +290,10 @@ const MovieDetails = ({ movie }: MovieDetailsProps) => {
           router.push({
             pathname: router.pathname,
             query: { movieId: router.query.movieId },
-          });
+          })
+              .catch((error) => {
+                console.error(`Error pushing new route: ${error}`);
+              })
         }}
         revalidate={() => revalidate()}
         show={showManager}

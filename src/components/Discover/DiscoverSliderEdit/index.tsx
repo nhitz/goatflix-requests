@@ -276,7 +276,10 @@ const DiscoverSliderEdit = ({
                 buttonType="danger"
                 buttonSize="sm"
                 onClick={() => {
-                  deleteSlider();
+                  deleteSlider()
+                      .catch((error) => {
+                        console.error(`Error deleteSlider: ${error}`);
+                      })
                 }}
               >
                 <XMarkIcon />

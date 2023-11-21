@@ -151,7 +151,10 @@ const RequestList = () => {
                   query: router.query.userId
                     ? { userId: router.query.userId }
                     : {},
-                });
+                })
+                    .catch((error) => {
+                      console.error(`Error pushing new route: ${error}`);
+                    })
               }}
               value={currentFilter}
               className="rounded-r-only"
@@ -193,7 +196,10 @@ const RequestList = () => {
                   query: router.query.userId
                     ? { userId: router.query.userId }
                     : {},
-                });
+                })
+                    .catch((error) => {
+                      console.error(`Error pushing new route: ${error}`);
+                    })
               }}
               value={currentSort}
               className="rounded-r-only"

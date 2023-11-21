@@ -106,9 +106,15 @@ export const useQueryParams = (): UseQueryParamReturnedFunction => {
 
       if (newRoute.path !== router.asPath) {
         if (routerAction === 'replace') {
-          router.replace(newRoute.pathname, newRoute.path);
+          router.replace(newRoute.pathname, newRoute.path)
+              .catch((error) => {
+                console.error(`Error router replate: ${error}`);
+              })
         } else {
-          router.push(newRoute.pathname, newRoute.path);
+          router.push(newRoute.pathname, newRoute.path)
+              .catch((error) => {
+                console.error(`Error router push: ${error}`);
+              })
         }
       }
     },

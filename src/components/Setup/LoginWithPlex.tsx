@@ -31,7 +31,10 @@ const LoginWithPlex = ({ onComplete }: LoginWithPlexProps) => {
       }
     };
     if (authToken) {
-      login();
+      login()
+          .catch((error) => {
+            console.error(`Error login: ${error}`);
+          })
     }
   }, [authToken, revalidate]);
 

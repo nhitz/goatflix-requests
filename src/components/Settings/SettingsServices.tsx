@@ -227,8 +227,14 @@ const SettingsServices = () => {
           radarr={editRadarrModal.radarr}
           onClose={() => setEditRadarrModal({ open: false, radarr: null })}
           onSave={() => {
-            revalidateRadarr();
-            mutate('/api/v1/settings/public');
+            revalidateRadarr()
+                .catch((error) => {
+                  console.error(`Error revalidateRadarr: ${error}`);
+                })
+            mutate('/api/v1/settings/public')
+                .catch((error) => {
+                  console.error(`Error mutate: ${error}`);
+                })
             setEditRadarrModal({ open: false, radarr: null });
           }}
         />
@@ -238,8 +244,14 @@ const SettingsServices = () => {
           sonarr={editSonarrModal.sonarr}
           onClose={() => setEditSonarrModal({ open: false, sonarr: null })}
           onSave={() => {
-            revalidateSonarr();
-            mutate('/api/v1/settings/public');
+            revalidateSonarr()
+                .catch((error) => {
+                  console.error(`Error revalidateSonarr: ${error}`);
+                })
+            mutate('/api/v1/settings/public')
+                .catch((error) => {
+                  console.error(`Error mutate: ${error}`);
+                })
             setEditSonarrModal({ open: false, sonarr: null });
           }}
         />

@@ -58,8 +58,14 @@ class DownloadTracker {
   }
 
   public updateDownloads() {
-    this.updateRadarrDownloads();
-    this.updateSonarrDownloads();
+    this.updateRadarrDownloads()
+        .catch((error) => {
+          console.error(`Error updating Radarr Downloads: ${error}`);
+        })
+    this.updateSonarrDownloads()
+        .catch((error) => {
+          console.error(`Error updating Sonarr Downloads: ${error}`);
+        })
   }
 
   private async updateRadarrDownloads() {

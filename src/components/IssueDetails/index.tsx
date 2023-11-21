@@ -302,7 +302,10 @@ const IssueDetails = () => {
             belongsToUser={belongsToUser}
             commentCount={otherComments.length}
             onEdit={(newMessage) => {
-              editFirstComment(newMessage);
+              editFirstComment(newMessage)
+                  .catch((error) => {
+                    console.error(`Error editing first comment: ${error}`);
+                  })
             }}
             onDelete={() => setShowDeleteModal(true)}
           />

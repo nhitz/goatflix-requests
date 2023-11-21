@@ -302,7 +302,10 @@ const TvDetails = ({ tv }: TvDetailsProps) => {
         show={showRequestModal}
         type="tv"
         onComplete={() => {
-          revalidate();
+          revalidate()
+              .catch((error) => {
+                console.error(`Error revalidating: ${error}`);
+              })
           setShowRequestModal(false);
         }}
         onCancel={() => setShowRequestModal(false)}
@@ -315,7 +318,10 @@ const TvDetails = ({ tv }: TvDetailsProps) => {
           router.push({
             pathname: router.pathname,
             query: { tvId: router.query.tvId },
-          });
+          })
+              .catch((error) => {
+                console.error(`Error pushing new route: ${error}`);
+              })
         }}
         revalidate={() => revalidate()}
         show={showManager}

@@ -250,7 +250,10 @@ const NotificationsPushover = () => {
                     disabled={isSubmitting || !isValid || isTesting}
                     onClick={(e) => {
                       e.preventDefault();
-                      testSettings();
+                      testSettings()
+                          .catch((error) => {
+                            console.error(`Error testSettings: ${error}`);
+                          })
                     }}
                   >
                     <BeakerIcon />

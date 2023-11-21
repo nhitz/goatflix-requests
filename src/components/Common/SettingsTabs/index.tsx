@@ -86,10 +86,16 @@ const SettingsTabs = ({
         </label>
         <select
           onChange={(e) => {
-            router.push(e.target.value);
+            router.push(e.target.value)
+                .catch((error) => {
+                  console.error(`Error pushing new route: ${error}`);
+                })
           }}
           onBlur={(e) => {
-            router.push(e.target.value);
+            router.push(e.target.value)
+                .catch((error) => {
+                  console.error(`Error pushing new route: ${error}`);
+                })
           }}
           defaultValue={
             settingsRoutes.find((route) => !!router.pathname.match(route.regex))
