@@ -452,7 +452,10 @@ const UserList = () => {
           onCancel={() => setShowBulkEditModal(false)}
           onComplete={() => {
             setShowBulkEditModal(false);
-            revalidate();
+            revalidate()
+                .catch((error) => {
+                  console.error(`Error revalidate: ${error}`);
+                })
           }}
           selectedUserIds={selectedUsers}
           users={data.results}
