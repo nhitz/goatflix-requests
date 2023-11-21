@@ -38,7 +38,7 @@ https://docs.overseerr.dev/getting-started/installation
 
 ## Preview
 
-<img src="./public/preview.jpg">
+<img src="./public/preview.jpg" alt="preview">
 
 ## Support
 
