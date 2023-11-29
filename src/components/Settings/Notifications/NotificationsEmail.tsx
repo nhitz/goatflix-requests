@@ -162,7 +162,7 @@ const NotificationsEmail = () => {
               pgpPassword: values.pgpPassword,
             },
           });
-          await mutate('/api/v1/settings/public');
+          mutate('/api/v1/settings/public');
 
           addToast(intl.formatMessage(messages.emailsettingssaved), {
             appearance: 'success',
@@ -174,7 +174,7 @@ const NotificationsEmail = () => {
             autoDismiss: true,
           });
         } finally {
-          await revalidate();
+          revalidate();
         }
       }}
     >

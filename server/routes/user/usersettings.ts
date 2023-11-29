@@ -338,7 +338,7 @@ userSettingsRoutes.post<{ id: string }, UserSettingsNotificationsResponse>(
         );
       }
 
-      await userRepository.save(user);
+      userRepository.save(user);
 
       return res.status(200).json({
         pgpKey: user.settings?.pgpKey,

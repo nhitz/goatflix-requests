@@ -99,7 +99,7 @@ const NotificationsPushover = () => {
             autoDismiss: true,
           });
         } finally {
-          await revalidate();
+          revalidate();
         }
       }}
     >

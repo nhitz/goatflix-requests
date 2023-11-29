@@ -73,8 +73,8 @@ const RequestCardError = ({ requestData }: RequestCardErrorProps) => {
 
   const deleteRequest = async () => {
     await axios.delete(`/api/v1/media/${requestData?.media.id}`);
-    await mutate('/api/v1/media?filter=allavailable&take=20&sort=mediaAdded');
-    await mutate('/api/v1/request?filter=all&take=10&sort=modified&skip=0');
+    mutate('/api/v1/media?filter=allavailable&take=20&sort=mediaAdded');
+    mutate('/api/v1/request?filter=all&take=10&sort=modified&skip=0');
   };
 
   return (
@@ -251,13 +251,13 @@ const RequestCard = ({ request, onTitleData }: RequestCardProps) => {
     const response = await axios.post(`/api/v1/request/${request.id}/${type}`);
 
     if (response) {
-      await revalidate();
+      revalidate();
     }
   };
 
   const deleteRequest = async () => {
     await axios.delete(`/api/v1/request/${request.id}`);
-    await mutate('/api/v1/request?filter=all&take=10&sort=modified&skip=0');
+    mutate('/api/v1/request?filter=all&take=10&sort=modified&skip=0');
   };
 
   const retryRequest = async () => {
@@ -267,7 +267,7 @@ const RequestCard = ({ request, onTitleData }: RequestCardProps) => {
       const response = await axios.post(`/api/v1/request/${request.id}/retry`);
 
       if (response) {
-        await revalidate();
+        revalidate();
       }
     } catch (e) {
       addToast(intl.formatMessage(messages.failedretry), {

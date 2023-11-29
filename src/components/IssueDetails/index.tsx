@@ -126,7 +126,7 @@ const IssueDetails = () => {
         appearance: 'success',
         autoDismiss: true,
       });
-      await revalidateIssue();
+      revalidateIssue();
     } catch (e) {
       addToast(intl.formatMessage(messages.toasteditdescriptionfailed), {
         appearance: 'error',
@@ -143,7 +143,7 @@ const IssueDetails = () => {
         appearance: 'success',
         autoDismiss: true,
       });
-      await revalidateIssue();
+      revalidateIssue();
     } catch (e) {
       addToast(intl.formatMessage(messages.toaststatusupdatefailed), {
         appearance: 'error',
@@ -160,7 +160,7 @@ const IssueDetails = () => {
         appearance: 'success',
         autoDismiss: true,
       });
-      await router.push('/issues');
+      router.push('/issues');
     } catch (e) {
       addToast(intl.formatMessage(messages.toastissuedeletefailed), {
         appearance: 'error',
@@ -460,7 +460,7 @@ const IssueDetails = () => {
                   await axios.post(`/api/v1/issue/${issueData?.id}/comment`, {
                     message: values.message,
                   });
-                  await revalidateIssue();
+                  revalidateIssue();
                   resetForm();
                 }}
               >

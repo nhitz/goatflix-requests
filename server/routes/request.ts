@@ -361,7 +361,7 @@ requestRoutes.put<{ requestId: string }>(
         request.tags = req.body.tags;
         request.requestedBy = requestUser as User;
 
-        await requestRepository.save(request);
+        requestRepository.save(request);
       } else if (req.body.mediaType === MediaType.TV) {
         const mediaRepository = getRepository(Media);
         request.serverId = req.body.serverId;

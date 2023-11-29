@@ -82,7 +82,7 @@ const NotificationsLunaSea = () => {
             autoDismiss: true,
           });
         } finally {
-          await revalidate();
+          revalidate();
         }
       }}
     >

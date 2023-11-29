@@ -58,7 +58,7 @@ const NotificationsWebPush = () => {
               enabled: values.enabled,
               options: {},
             });
-            await mutate('/api/v1/settings/public');
+            mutate('/api/v1/settings/public');
             addToast(intl.formatMessage(messages.webpushsettingssaved), {
               appearance: 'success',
               autoDismiss: true,
@@ -69,7 +69,7 @@ const NotificationsWebPush = () => {
               autoDismiss: true,
             });
           } finally {
-            await revalidate();
+            revalidate();
           }
         }}
       >

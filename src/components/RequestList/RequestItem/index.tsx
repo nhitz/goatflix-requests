@@ -310,7 +310,7 @@ const RequestItem = ({ request, revalidateList }: RequestItemProps) => {
     const response = await axios.post(`/api/v1/request/${request.id}/${type}`);
 
     if (response) {
-      await revalidate();
+      revalidate();
     }
   };
 
@@ -325,7 +325,7 @@ const RequestItem = ({ request, revalidateList }: RequestItemProps) => {
 
     try {
       const result = await axios.post(`/api/v1/request/${request.id}/retry`);
-      await revalidate(result.data);
+      revalidate(result.data);
     } catch (e) {
       addToast(intl.formatMessage(messages.failedretry), {
         autoDismiss: true,

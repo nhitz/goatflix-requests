@@ -45,9 +45,9 @@ const Setup = () => {
     setIsUpdating(false);
     if (response.data.initialized) {
       await axios.post('/api/v1/settings/main', { locale });
-      await mutate('/api/v1/settings/public');
+      mutate('/api/v1/settings/public');
 
-      await router.push('/');
+      router.push('/');
     }
   };
 

@@ -190,7 +190,7 @@ const UserList = () => {
       });
     } finally {
       setDeleting(false);
-      await revalidate();
+      revalidate();
     }
   };
 
@@ -298,7 +298,7 @@ const UserList = () => {
                 }
               );
             } finally {
-              await revalidate();
+              revalidate();
             }
           }}
         >

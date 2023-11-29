@@ -169,8 +169,8 @@ const UserGeneralSettings = () => {
               appearance: 'error',
             });
           } finally {
-            await revalidate();
-            await revalidateUser();
+            revalidate();
+            revalidateUser();
           }
         }}
       >

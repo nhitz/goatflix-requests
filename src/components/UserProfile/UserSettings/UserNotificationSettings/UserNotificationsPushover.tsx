@@ -107,7 +107,7 @@ const UserPushoverSettings = () => {
             autoDismiss: true,
           });
         } finally {
-          await revalidate();
+          revalidate();
         }
       }}
     >

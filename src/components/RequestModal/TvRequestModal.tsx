@@ -127,7 +127,7 @@ const TvRequestModal = ({
       } else {
         await axios.delete(`/api/v1/request/${editRequest.id}`);
       }
-      await mutate('/api/v1/request?filter=all&take=10&sort=modified&skip=0');
+      mutate('/api/v1/request?filter=all&take=10&sort=modified&skip=0');
 
       addToast(
         <span>
@@ -202,7 +202,7 @@ const TvRequestModal = ({
             ),
         ...overrideParams,
       });
-      await mutate('/api/v1/request?filter=all&take=10&sort=modified&skip=0');
+      mutate('/api/v1/request?filter=all&take=10&sort=modified&skip=0');
 
       if (response.data) {
         if (onComplete) {

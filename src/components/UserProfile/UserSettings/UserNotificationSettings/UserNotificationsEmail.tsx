@@ -85,7 +85,7 @@ const UserEmailSettings = () => {
             autoDismiss: true,
           });
         } finally {
-          await revalidate();
+          revalidate();
         }
       }}
     >

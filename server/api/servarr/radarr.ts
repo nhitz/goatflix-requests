@@ -129,7 +129,7 @@ class RadarrAPI extends ServarrBase<{ movieId: number }> {
           });
 
           if (options.searchNow) {
-            await this.searchMovie(response.data.id);
+            this.searchMovie(response.data.id);
           }
 
           return response.data;

@@ -138,7 +138,7 @@ class ImageProxy {
 
     // If the image is stale, we will revalidate it in the background.
     if (imageResponse.meta.isStale) {
-      await this.set(path, cacheKey);
+      this.set(path, cacheKey);
     }
 
     return imageResponse;

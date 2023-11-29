@@ -94,8 +94,8 @@ const UserPermissions = () => {
               appearance: 'error',
             });
           } finally {
-            await revalidate();
-            await revalidateUser();
+            revalidate();
+            revalidateUser();
           }
         }}
       >

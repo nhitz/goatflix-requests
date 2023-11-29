@@ -263,7 +263,7 @@ class PlexScanner
     // If the media is from HAMA, and doesn't have a TVDb ID, we will treat it
     // as a special HAMA movie
     if (mediaIds.tmdbId && !mediaIds.tvdbId && mediaIds.isHama) {
-      await this.processHamaMovie(metadata, mediaIds.tmdbId);
+      this.processHamaMovie(metadata, mediaIds.tmdbId);
       return;
     }
 

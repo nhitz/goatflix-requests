@@ -94,7 +94,7 @@ const MovieRequestModal = ({
         is4k,
         ...overrideParams,
       });
-      await mutate('/api/v1/request?filter=all&take=10&sort=modified&skip=0');
+      mutate('/api/v1/request?filter=all&take=10&sort=modified&skip=0');
 
       if (response.data) {
         if (onComplete) {
@@ -138,7 +138,7 @@ const MovieRequestModal = ({
       const response = await axios.delete<MediaRequest>(
         `/api/v1/request/${editRequest?.id}`
       );
-      await mutate('/api/v1/request?filter=all&take=10&sort=modified&skip=0');
+      mutate('/api/v1/request?filter=all&take=10&sort=modified&skip=0');
 
       if (response.status === 204) {
         if (onComplete) {
@@ -175,7 +175,7 @@ const MovieRequestModal = ({
       if (alsoApproveRequest) {
         await axios.post(`/api/v1/request/${editRequest?.id}/approve`);
       }
-      await mutate('/api/v1/request?filter=all&take=10&sort=modified&skip=0');
+      mutate('/api/v1/request?filter=all&take=10&sort=modified&skip=0');
 
       addToast(
         <span>

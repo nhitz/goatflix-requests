@@ -81,7 +81,7 @@ const NotificationsPushbullet = () => {
             autoDismiss: true,
           });
         } finally {
-          await revalidate();
+          revalidate();
         }
       }}
     >

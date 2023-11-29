@@ -161,7 +161,7 @@ export class User {
 
   public async generatePassword(): Promise<void> {
     const password = generatePassword.randomPassword({ length: 16 });
-    await this.setPassword(password);
+    this.setPassword(password);
 
     const { applicationTitle, applicationUrl } = getSettings().main;
     try {
