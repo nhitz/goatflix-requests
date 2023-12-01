@@ -93,7 +93,7 @@ const NotificationsDiscord = () => {
             autoDismiss: true,
           });
         } finally {
-          revalidate();
+          await revalidate();
         }
       }}
     >

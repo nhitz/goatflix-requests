@@ -78,7 +78,7 @@ const NotificationsSlack = () => {
             autoDismiss: true,
           });
         } finally {
-          revalidate();
+          await revalidate();
         }
       }}
     >

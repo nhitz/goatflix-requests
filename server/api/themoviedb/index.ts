@@ -805,16 +805,11 @@ class TheMovieDb extends ExternalAPI {
     language?: string;
   }): Promise<TmdbCollection> {
     try {
-      const data = await this.get<TmdbCollection>(
-        `/collection/${collectionId}`,
-        {
-          params: {
-            language,
-          },
-        }
-      );
-
-      return data;
+      return await this.get<TmdbCollection>(`/collection/${collectionId}`, {
+        params: {
+          language,
+        },
+      });
     } catch (e) {
       throw new Error(`[TMDB] Failed to fetch collection: ${e.message}`);
     }

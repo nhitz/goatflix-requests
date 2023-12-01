@@ -1,4 +1,3 @@
-// import { getSettings } from '@server/lib/settings';
 import axios from 'axios';
 import Bowser from 'bowser';
 
@@ -56,7 +55,6 @@ class PlexOAuth {
       clientId = uuid;
     }
 
-    // const settings = getSettings();
     const browser = Bowser.getParser(window.navigator.userAgent);
     this.plexHeaders = {
       Accept: 'application/json',
@@ -135,6 +133,7 @@ class PlexOAuth {
     ) => {
       try {
         if (!this.pin) {
+          // noinspection ExceptionCaughtLocallyJS
           throw new Error('Unable to poll when pin is not initialized.');
         }
 

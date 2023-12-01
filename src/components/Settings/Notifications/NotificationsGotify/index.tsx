@@ -97,7 +97,7 @@ const NotificationsGotify = () => {
             autoDismiss: true,
           });
         } finally {
-          revalidate();
+          await revalidate();
         }
       }}
     >
