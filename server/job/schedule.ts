@@ -38,9 +38,7 @@ export const startJobs = (): void => {
       logger.info('Starting scheduled job: Plex Recently Added Scan', {
         label: 'Jobs',
       });
-      plexRecentScanner.run().catch((error) => {
-        console.error(`Error plexRecentScanner.run: ${error}`);
-      });
+      plexRecentScanner.run();
     }),
     running: () => plexRecentScanner.status().running,
     cancelFn: () => plexRecentScanner.cancel(),
@@ -57,9 +55,7 @@ export const startJobs = (): void => {
       logger.info('Starting scheduled job: Plex Full Library Scan', {
         label: 'Jobs',
       });
-      plexFullScanner.run().catch((error) => {
-        console.error(`Error plexRecentScanner.run: ${error}`);
-      });
+      plexFullScanner.run();
     }),
     running: () => plexFullScanner.status().running,
     cancelFn: () => plexFullScanner.cancel(),
@@ -76,9 +72,7 @@ export const startJobs = (): void => {
       logger.info('Starting scheduled job: Plex Watchlist Sync', {
         label: 'Jobs',
       });
-      watchlistSync.syncWatchlist().catch((error) => {
-        console.error(`Error syncWatchlist: ${error}`);
-      });
+      watchlistSync.syncWatchlist();
     }),
   };
 
@@ -101,9 +95,7 @@ export const startJobs = (): void => {
     cronSchedule: jobs['radarr-scan'].schedule,
     job: schedule.scheduleJob(jobs['radarr-scan'].schedule, () => {
       logger.info('Starting scheduled job: Radarr Scan', { label: 'Jobs' });
-      radarrScanner.run().catch((error) => {
-        console.error(`Error radarrScanner.run: ${error}`);
-      });
+      radarrScanner.run();
     }),
     running: () => radarrScanner.status().running,
     cancelFn: () => radarrScanner.cancel(),
@@ -118,9 +110,7 @@ export const startJobs = (): void => {
     cronSchedule: jobs['sonarr-scan'].schedule,
     job: schedule.scheduleJob(jobs['sonarr-scan'].schedule, () => {
       logger.info('Starting scheduled job: Sonarr Scan', { label: 'Jobs' });
-      sonarrScanner.run().catch((error) => {
-        console.error(`Error sonarrScanner.run: ${error}`);
-      });
+      sonarrScanner.run();
     }),
     running: () => sonarrScanner.status().running,
     cancelFn: () => sonarrScanner.cancel(),
@@ -137,9 +127,7 @@ export const startJobs = (): void => {
       logger.info('Starting scheduled job: Media Availability Sync', {
         label: 'Jobs',
       });
-      availabilitySync.run().catch((error) => {
-        console.error(`Error availabilitySync.run: ${error}`);
-      });
+      availabilitySync.run();
     }),
     running: () => availabilitySync.running,
     cancelFn: () => availabilitySync.cancel(),
@@ -171,9 +159,7 @@ export const startJobs = (): void => {
       logger.info('Starting scheduled job: Download Sync Reset', {
         label: 'Jobs',
       });
-      downloadTracker.resetDownloadTracker().catch((error) => {
-        console.error(`Error downloadTracker.resetDownloadTracker: ${error}`);
-      });
+      downloadTracker.resetDownloadTracker();
     }),
   });
 
@@ -189,9 +175,7 @@ export const startJobs = (): void => {
         label: 'Jobs',
       });
       // Clean TMDB image cache
-      ImageProxy.clearCache('tmdb').catch((error) => {
-        console.error(`Error ImageProxy.clearCache: ${error}`);
-      });
+      ImageProxy.clearCache('tmdb');
     }),
   });
 

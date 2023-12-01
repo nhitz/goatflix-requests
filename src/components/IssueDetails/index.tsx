@@ -126,7 +126,7 @@ const IssueDetails = () => {
         appearance: 'success',
         autoDismiss: true,
       });
-      revalidateIssue();
+      await revalidateIssue();
     } catch (e) {
       addToast(intl.formatMessage(messages.toasteditdescriptionfailed), {
         appearance: 'error',
@@ -143,7 +143,7 @@ const IssueDetails = () => {
         appearance: 'success',
         autoDismiss: true,
       });
-      revalidateIssue();
+      await revalidateIssue();
     } catch (e) {
       addToast(intl.formatMessage(messages.toaststatusupdatefailed), {
         appearance: 'error',
@@ -160,7 +160,7 @@ const IssueDetails = () => {
         appearance: 'success',
         autoDismiss: true,
       });
-      router.push('/issues');
+      await router.push('/issues');
     } catch (e) {
       addToast(intl.formatMessage(messages.toastissuedeletefailed), {
         appearance: 'error',
@@ -302,9 +302,7 @@ const IssueDetails = () => {
             belongsToUser={belongsToUser}
             commentCount={otherComments.length}
             onEdit={(newMessage) => {
-              editFirstComment(newMessage).catch((error) => {
-                console.error(`Error editing first comment: ${error}`);
-              });
+              editFirstComment(newMessage);
             }}
             onDelete={() => setShowDeleteModal(true)}
           />
@@ -459,7 +457,7 @@ const IssueDetails = () => {
                   await axios.post(`/api/v1/issue/${issueData?.id}/comment`, {
                     message: values.message,
                   });
-                  revalidateIssue();
+                  await revalidateIssue();
                   resetForm();
                 }}
               >

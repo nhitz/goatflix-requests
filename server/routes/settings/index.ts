@@ -238,9 +238,7 @@ settingsRoutes.post('/plex/sync', (req, res) => {
   if (req.body.cancel) {
     plexFullScanner.cancel();
   } else if (req.body.start) {
-    plexFullScanner.run().catch((error) => {
-      console.error(`Error running full plex scan: ${error}`);
-    });
+    plexFullScanner.run();
   }
   return res.status(200).json(plexFullScanner.status());
 });

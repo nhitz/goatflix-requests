@@ -90,9 +90,7 @@ const useDiscover = <
       isValidating);
 
   const fetchMore = () => {
-    setSize(size + 1).catch((error) => {
-      console.error(`Error setSize: ${error}`);
-    });
+    setSize(size + 1);
   };
 
   let titles = (data ?? []).reduce((a, v) => [...a, ...v.results], [] as T[]);

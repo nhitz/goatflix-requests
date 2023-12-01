@@ -283,9 +283,7 @@ const SettingsLogs = () => {
                 name="filter"
                 onChange={(e) => {
                   setCurrentFilter(e.target.value as Filter);
-                  router.push(router.pathname).catch((error) => {
-                    console.error(`Error pushing new route: ${error}`);
-                  });
+                  router.push(router.pathname);
                 }}
                 value={currentFilter}
                 className="rounded-r-only"

@@ -82,9 +82,7 @@ export const CompanySelector = ({
       ]);
     };
 
-    loadDefaultCompany().catch((error) => {
-      console.error(`Error loadDefaultCompany: ${error}`);
-    });
+    loadDefaultCompany();
   }, [defaultValue]);
 
   const loadCompanyOptions = async (inputValue: string) => {
@@ -168,9 +166,7 @@ export const GenreSelector = ({
       setDefaultDataValue(genreData);
     };
 
-    loadDefaultGenre().catch((error) => {
-      console.error(`Error loadDefaultGenre: ${error}`);
-    });
+    loadDefaultGenre();
   }, [defaultValue, type]);
 
   const loadGenreOptions = async (inputValue: string) => {
@@ -241,9 +237,7 @@ export const KeywordSelector = ({
       );
     };
 
-    loadDefaultKeywords().catch((error) => {
-      console.error(`Error loadDefaultKeywords: ${error}`);
-    });
+    loadDefaultKeywords();
   }, [defaultValue]);
 
   const loadKeywordOptions = async (inputValue: string) => {

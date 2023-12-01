@@ -99,8 +99,6 @@ export class IssueCommentSubscriber
       return;
     }
 
-    this.sendIssueCommentNotification(event.entity).catch((error) => {
-      console.error(`Error sendIssueCommentNotification: ${error}`);
-    });
+    this.sendIssueCommentNotification(event.entity);
   }
 }

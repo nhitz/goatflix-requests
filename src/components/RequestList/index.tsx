@@ -146,16 +146,12 @@ const RequestList = () => {
               name="filter"
               onChange={(e) => {
                 setCurrentFilter(e.target.value as Filter);
-                router
-                  .push({
-                    pathname: router.pathname,
-                    query: router.query.userId
-                      ? { userId: router.query.userId }
-                      : {},
-                  })
-                  .catch((error) => {
-                    console.error(`Error pushing new route: ${error}`);
-                  });
+                router.push({
+                  pathname: router.pathname,
+                  query: router.query.userId
+                    ? { userId: router.query.userId }
+                    : {},
+                });
               }}
               value={currentFilter}
               className="rounded-r-only"
@@ -192,16 +188,12 @@ const RequestList = () => {
               name="sort"
               onChange={(e) => {
                 setCurrentSort(e.target.value as Sort);
-                router
-                  .push({
-                    pathname: router.pathname,
-                    query: router.query.userId
-                      ? { userId: router.query.userId }
-                      : {},
-                  })
-                  .catch((error) => {
-                    console.error(`Error pushing new route: ${error}`);
-                  });
+                router.push({
+                  pathname: router.pathname,
+                  query: router.query.userId
+                    ? { userId: router.query.userId }
+                    : {},
+                });
               }}
               value={currentSort}
               className="rounded-r-only"

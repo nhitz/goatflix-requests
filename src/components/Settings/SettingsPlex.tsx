@@ -244,7 +244,7 @@ const SettingsPlex = ({ onComplete }: SettingsPlexProps) => {
       params,
     });
     setIsSyncing(false);
-    revalidate();
+    await revalidate();
   };
 
   const refreshPresetServers = async () => {
@@ -291,14 +291,14 @@ const SettingsPlex = ({ onComplete }: SettingsPlexProps) => {
     await axios.post('/api/v1/settings/plex/sync', {
       start: true,
     });
-    revalidateSync();
+    await revalidateSync();
   };
 
   const cancelScan = async () => {
     await axios.post('/api/v1/settings/plex/sync', {
       cancel: true,
     });
-    revalidateSync();
+    await revalidateSync();
   };
 
   const toggleLibrary = async (libraryId: string) => {
@@ -323,7 +323,7 @@ const SettingsPlex = ({ onComplete }: SettingsPlexProps) => {
       });
     }
     setIsSyncing(false);
-    revalidate();
+    await revalidate();
   };
 
   if ((!data || !dataTautulli) && !error) {
@@ -391,7 +391,7 @@ const SettingsPlex = ({ onComplete }: SettingsPlexProps) => {
               webAppUrl: values.webAppUrl,
             } as PlexSettings);
 
-            syncLibraries();
+            await syncLibraries();
 
             if (toastId) {
               removeToast(toastId);
@@ -487,9 +487,7 @@ const SettingsPlex = ({ onComplete }: SettingsPlexProps) => {
                     <button
                       onClick={(e) => {
                         e.preventDefault();
-                        refreshPresetServers().catch((error) => {
-                          console.error(`Error refreshPresetServers: ${error}`);
-                        });
+                        refreshPresetServers();
                       }}
                       className="input-action"
                     >
@@ -774,7 +772,7 @@ const SettingsPlex = ({ onComplete }: SettingsPlexProps) => {
                   }
                 );
               } finally {
-                revalidateTautulli();
+                await revalidateTautulli();
               }
             }}
           >

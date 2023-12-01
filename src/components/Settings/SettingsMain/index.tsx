@@ -88,7 +88,7 @@ const SettingsMain = () => {
     try {
       await axios.post('/api/v1/settings/main/regenerate');
 
-      revalidate();
+      await revalidate();
       addToast(intl.formatMessage(messages.toastApiKeySuccess), {
         autoDismiss: true,
         appearance: 'success',
@@ -151,8 +151,8 @@ const SettingsMain = () => {
                 trustProxy: values.trustProxy,
                 cacheImages: values.cacheImages,
               });
-              mutate('/api/v1/settings/public');
-              mutate('/api/v1/status');
+              await mutate('/api/v1/settings/public');
+              await mutate('/api/v1/status');
 
               if (setLocale) {
                 setLocale(
@@ -172,7 +172,7 @@ const SettingsMain = () => {
                 appearance: 'error',
               });
             } finally {
-              revalidate();
+              await revalidate();
             }
           }}
         >
@@ -207,9 +207,7 @@ const SettingsMain = () => {
                         <button
                           onClick={(e) => {
                             e.preventDefault();
-                            regenerate().catch((error) => {
-                              console.error(`Error regenerate: ${error}`);
-                            });
+                            regenerate();
                           }}
                           className="input-action"
                         >

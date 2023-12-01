@@ -217,8 +217,6 @@ const SonarrModal = ({ onClose, sonarr, onSave }: SonarrModalProps) => {
         port: sonarr.port,
         baseUrl: sonarr.baseUrl,
         useSsl: sonarr.useSsl,
-      }).catch((error) => {
-        console.error(`Error testConnection: ${error}`);
       });
     }
   }, [sonarr, testConnection]);
@@ -349,8 +347,6 @@ const SonarrModal = ({ onClose, sonarr, onSave }: SonarrModalProps) => {
                     hostname: values.hostname,
                     port: values.port,
                     useSsl: values.ssl,
-                  }).catch((error) => {
-                    console.error(`Error testConnection: ${error}`);
                   });
                   if (!values.baseUrl || values.baseUrl === '/') {
                     setFieldValue('baseUrl', testResponse.urlBase);

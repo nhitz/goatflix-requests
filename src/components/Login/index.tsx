@@ -40,7 +40,7 @@ const Login = () => {
         const response = await axios.post('/api/v1/auth/plex', { authToken });
 
         if (response.data?.id) {
-          revalidate();
+          await revalidate();
         }
       } catch (e) {
         setError(e.response.data.message);
@@ -49,9 +49,7 @@ const Login = () => {
       }
     };
     if (authToken) {
-      login().catch((error) => {
-        console.error(`Error login: ${error}`);
-      });
+      login();
     }
   }, [authToken, revalidate]);
 
@@ -59,9 +57,7 @@ const Login = () => {
   // valid user, we redirect the user to the home page as the login was successful.
   useEffect(() => {
     if (user) {
-      router.push('/').catch((error) => {
-        console.error(`Error pushing new route: ${error}`);
-      });
+      router.push('/');
     }
   }, [user, router]);
 

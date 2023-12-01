@@ -78,7 +78,7 @@ const NotificationsSlack = () => {
             autoDismiss: true,
           });
         } finally {
-          revalidate();
+          await revalidate();
         }
       }}
     >
@@ -203,9 +203,7 @@ const NotificationsSlack = () => {
                     disabled={isSubmitting || !isValid || isTesting}
                     onClick={(e) => {
                       e.preventDefault();
-                      testSettings().catch((error) => {
-                        console.error(`Error testSettings: ${error}`);
-                      });
+                      testSettings();
                     }}
                   >
                     <BeakerIcon />

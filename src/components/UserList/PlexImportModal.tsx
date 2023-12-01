@@ -105,9 +105,7 @@ const PlexImportModal = ({ onCancel, onComplete }: PlexImportProps) => {
       loading={!data && !error}
       title={intl.formatMessage(messages.importfromplex)}
       onOk={() => {
-        importUsers().catch((error) => {
-          console.error(`Error testSettings: ${error}`);
-        });
+        importUsers();
       }}
       okDisabled={isImporting || !selectedUsers.length}
       okText={intl.formatMessage(

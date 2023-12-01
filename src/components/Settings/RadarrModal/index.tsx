@@ -208,8 +208,6 @@ const RadarrModal = ({ onClose, radarr, onSave }: RadarrModalProps) => {
         port: radarr.port,
         baseUrl: radarr.baseUrl,
         useSsl: radarr.useSsl,
-      }).catch((error) => {
-        console.error(`Error testConnection: ${error}`);
       });
     }
   }, [radarr, testConnection]);
@@ -320,8 +318,6 @@ const RadarrModal = ({ onClose, radarr, onSave }: RadarrModalProps) => {
                     hostname: values.hostname,
                     port: values.port,
                     useSsl: values.ssl,
-                  }).catch((error) => {
-                    console.error(`Error testConnection: ${error}`);
                   });
                   if (!values.baseUrl || values.baseUrl === '/') {
                     setFieldValue('baseUrl', testResponse.urlBase);

@@ -19,9 +19,7 @@ export const UserContext = ({ initialUser, children }: UserContextProps) => {
   const routing = useRef(false);
 
   useEffect(() => {
-    revalidate().catch((error) => {
-      console.error(`Error revalidate: ${error}`);
-    });
+    revalidate();
   }, [router.pathname, revalidate]);
 
   useEffect(() => {

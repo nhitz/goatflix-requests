@@ -58,7 +58,7 @@ const NotificationsWebPush = () => {
               enabled: values.enabled,
               options: {},
             });
-            mutate('/api/v1/settings/public');
+            await mutate('/api/v1/settings/public');
             addToast(intl.formatMessage(messages.webpushsettingssaved), {
               appearance: 'success',
               autoDismiss: true,
@@ -69,7 +69,7 @@ const NotificationsWebPush = () => {
               autoDismiss: true,
             });
           } finally {
-            revalidate();
+            await revalidate();
           }
         }}
       >
@@ -132,9 +132,7 @@ const NotificationsWebPush = () => {
                       disabled={isSubmitting || isTesting}
                       onClick={(e) => {
                         e.preventDefault();
-                        testSettings().catch((error) => {
-                          console.error(`Error testSettings: ${error}`);
-                        });
+                        testSettings();
                       }}
                     >
                       <BeakerIcon />

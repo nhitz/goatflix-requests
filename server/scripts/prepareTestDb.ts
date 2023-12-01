@@ -69,6 +69,4 @@ const prepareDb = async () => {
   await userRepository.save(otherUser);
 };
 
-prepareDb().catch((error) => {
-  console.error(`Error prepareDb: ${error}`);
-});
+prepareDb();

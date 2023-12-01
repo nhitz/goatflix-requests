@@ -162,7 +162,7 @@ const NotificationsEmail = () => {
               pgpPassword: values.pgpPassword,
             },
           });
-          mutate('/api/v1/settings/public');
+          await mutate('/api/v1/settings/public');
 
           addToast(intl.formatMessage(messages.emailsettingssaved), {
             appearance: 'success',
@@ -174,7 +174,7 @@ const NotificationsEmail = () => {
             autoDismiss: true,
           });
         } finally {
-          revalidate();
+          await revalidate();
         }
       }}
     >
@@ -443,9 +443,7 @@ const NotificationsEmail = () => {
                     disabled={isSubmitting || !isValid || isTesting}
                     onClick={(e) => {
                       e.preventDefault();
-                      testSettings().catch((error) => {
-                        console.error(`Error testSettings: ${error}`);
-                      });
+                      testSettings();
                     }}
                   >
                     <BeakerIcon />

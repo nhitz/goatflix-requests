@@ -86,9 +86,7 @@ const BulkEditModal = ({
     <Modal
       title={intl.formatMessage(messages.edituser)}
       onOk={() => {
-        updateUsers().catch((error) => {
-          console.error(`Error updating users: ${error}`);
-        });
+        updateUsers();
       }}
       okDisabled={isSaving}
       okText={intl.formatMessage(globalMessages.save)}
