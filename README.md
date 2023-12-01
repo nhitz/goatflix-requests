@@ -35,15 +35,3 @@ https://docs.overseerr.dev/getting-started/installation
 Our documentation is built on every commit and hosted at https://api-docs.overseerr.dev
 
 You can also access the API documentation from your local Overseerr install at http://localhost:5055/api-docs
-
-## Community
-
-You can ask questions, share ideas, and more in [GitHub Discussions](https://github.com/sct/overseerr/discussions).
-
-If you would like to chat with other members of our growing community, [join the Overseerr Discord server](https://discord.gg/overseerr)!
-
-Our [Code of Conduct](https://github.com/sct/overseerr/blob/develop/CODE_OF_CONDUCT.md) applies to all Overseerr community channels.
-
-## Contributing
-
-You can help improve Overseerr too! Check out our [Contribution Guide](https://github.com/sct/overseerr/blob/develop/CONTRIBUTING.md) to get started.
