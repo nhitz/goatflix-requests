@@ -205,10 +205,9 @@ export class MediaSubscriber implements EntitySubscriberInterface<Media> {
         event.entity as Media,
         event.databaseEntity,
         false
-      )
-          .catch((error) => {
-            console.error(`Error notifyAvailableMovie: ${error}`);
-          })
+      ).catch((error) => {
+        console.error(`Error notifyAvailableMovie: ${error}`);
+      });
     }
 
     if (
@@ -219,10 +218,9 @@ export class MediaSubscriber implements EntitySubscriberInterface<Media> {
         event.entity as Media,
         event.databaseEntity,
         true
-      )
-          .catch((error) => {
-            console.error(`Error notifyAvailableMovie: ${error}`);
-          })
+      ).catch((error) => {
+        console.error(`Error notifyAvailableMovie: ${error}`);
+      });
     }
 
     if (
@@ -234,10 +232,9 @@ export class MediaSubscriber implements EntitySubscriberInterface<Media> {
         event.entity as Media,
         event.databaseEntity,
         false
-      )
-          .catch((error) => {
-            console.error(`Error notifyAvailableSeries: ${error}`);
-          })
+      ).catch((error) => {
+        console.error(`Error notifyAvailableSeries: ${error}`);
+      });
     }
 
     if (
@@ -249,30 +246,31 @@ export class MediaSubscriber implements EntitySubscriberInterface<Media> {
         event.entity as Media,
         event.databaseEntity,
         true
-      )
-          .catch((error) => {
-            console.error(`Error notifyAvailableSeries: ${error}`);
-          })
+      ).catch((error) => {
+        console.error(`Error notifyAvailableSeries: ${error}`);
+      });
     }
 
     if (
       event.entity.status === MediaStatus.AVAILABLE &&
       event.databaseEntity.status === MediaStatus.PENDING
     ) {
-      this.updateChildRequestStatus(event.entity as Media, false)
-          .catch((error) => {
-            console.error(`Error updateChildRequestStatus: ${error}`);
-          })
+      this.updateChildRequestStatus(event.entity as Media, false).catch(
+        (error) => {
+          console.error(`Error updateChildRequestStatus: ${error}`);
+        }
+      );
     }
 
     if (
       event.entity.status4k === MediaStatus.AVAILABLE &&
       event.databaseEntity.status4k === MediaStatus.PENDING
     ) {
-      this.updateChildRequestStatus(event.entity as Media, true)
-          .catch((error) => {
-            console.error(`Error updateChildRequestStatus: ${error}`);
-          })
+      this.updateChildRequestStatus(event.entity as Media, true).catch(
+        (error) => {
+          console.error(`Error updateChildRequestStatus: ${error}`);
+        }
+      );
     }
   }
 

@@ -115,10 +115,9 @@ const Error = ({ id, tmdbId, tvdbId, type, canExpand }: ErrorCardProps) => {
               buttonSize="sm"
               onClick={(e) => {
                 e.preventDefault();
-                deleteMedia()
-                    .catch((error) => {
-                      console.error(`Error deleting media: ${error}`);
-                    })
+                deleteMedia().catch((error) => {
+                  console.error(`Error deleting media: ${error}`);
+                });
               }}
               className="h-7 w-full"
             >

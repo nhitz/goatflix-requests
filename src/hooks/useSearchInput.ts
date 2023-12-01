@@ -34,16 +34,17 @@ const useSearchInput = (): SearchObject => {
   useEffect(() => {
     if (debouncedValue !== '' && searchOpen) {
       if (router.pathname.startsWith('/search')) {
-        router.replace({
-          pathname: router.pathname,
-          query: {
-            ...router.query,
-            query: debouncedValue,
-          },
-        })
-            .catch((error) => {
-              console.error(`Error router.replace: ${error}`);
-            })
+        router
+          .replace({
+            pathname: router.pathname,
+            query: {
+              ...router.query,
+              query: debouncedValue,
+            },
+          })
+          .catch((error) => {
+            console.error(`Error router.replace: ${error}`);
+          });
       } else {
         setLastRoute(router.asPath);
         router

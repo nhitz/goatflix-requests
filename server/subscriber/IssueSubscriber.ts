@@ -107,10 +107,11 @@ export class IssueSubscriber implements EntitySubscriberInterface<Issue> {
       return;
     }
 
-    this.sendIssueNotification(event.entity, Notification.ISSUE_CREATED)
-        .catch((error) => {
-          console.error(`Error sendIssueNotification: ${error}`);
-        })
+    this.sendIssueNotification(event.entity, Notification.ISSUE_CREATED).catch(
+      (error) => {
+        console.error(`Error sendIssueNotification: ${error}`);
+      }
+    );
   }
 
   public beforeUpdate(event: UpdateEvent<Issue>): void {
@@ -125,10 +126,9 @@ export class IssueSubscriber implements EntitySubscriberInterface<Issue> {
       this.sendIssueNotification(
         event.entity as Issue,
         Notification.ISSUE_RESOLVED
-      )
-          .catch((error) => {
-            console.error(`Error sendIssueNotification: ${error}`);
-          })
+      ).catch((error) => {
+        console.error(`Error sendIssueNotification: ${error}`);
+      });
     } else if (
       event.entity.status === IssueStatus.OPEN &&
       event.databaseEntity.status !== IssueStatus.OPEN
@@ -136,10 +136,9 @@ export class IssueSubscriber implements EntitySubscriberInterface<Issue> {
       this.sendIssueNotification(
         event.entity as Issue,
         Notification.ISSUE_REOPENED
-      )
-          .catch((error) => {
-            console.error(`Error sendIssueNotification: ${error}`);
-          })
+      ).catch((error) => {
+        console.error(`Error sendIssueNotification: ${error}`);
+      });
     }
   }
 }

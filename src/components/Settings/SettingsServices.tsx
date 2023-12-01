@@ -227,14 +227,12 @@ const SettingsServices = () => {
           radarr={editRadarrModal.radarr}
           onClose={() => setEditRadarrModal({ open: false, radarr: null })}
           onSave={() => {
-            revalidateRadarr()
-                .catch((error) => {
-                  console.error(`Error revalidateRadarr: ${error}`);
-                })
-            mutate('/api/v1/settings/public')
-                .catch((error) => {
-                  console.error(`Error mutate: ${error}`);
-                })
+            revalidateRadarr().catch((error) => {
+              console.error(`Error revalidateRadarr: ${error}`);
+            });
+            mutate('/api/v1/settings/public').catch((error) => {
+              console.error(`Error mutate: ${error}`);
+            });
             setEditRadarrModal({ open: false, radarr: null });
           }}
         />
@@ -244,14 +242,12 @@ const SettingsServices = () => {
           sonarr={editSonarrModal.sonarr}
           onClose={() => setEditSonarrModal({ open: false, sonarr: null })}
           onSave={() => {
-            revalidateSonarr()
-                .catch((error) => {
-                  console.error(`Error revalidateSonarr: ${error}`);
-                })
-            mutate('/api/v1/settings/public')
-                .catch((error) => {
-                  console.error(`Error mutate: ${error}`);
-                })
+            revalidateSonarr().catch((error) => {
+              console.error(`Error revalidateSonarr: ${error}`);
+            });
+            mutate('/api/v1/settings/public').catch((error) => {
+              console.error(`Error mutate: ${error}`);
+            });
             setEditSonarrModal({ open: false, sonarr: null });
           }}
         />

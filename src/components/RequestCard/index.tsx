@@ -311,10 +311,9 @@ const RequestCard = ({ request, onTitleData }: RequestCardProps) => {
         editRequest={request}
         onCancel={() => setShowEditModal(false)}
         onComplete={() => {
-          revalidate()
-              .catch((error) => {
-                console.error(`Error revalidating: ${error}`);
-              })
+          revalidate().catch((error) => {
+            console.error(`Error revalidating: ${error}`);
+          });
           setShowEditModal(false);
         }}
       />

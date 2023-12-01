@@ -207,10 +207,9 @@ const SettingsMain = () => {
                         <button
                           onClick={(e) => {
                             e.preventDefault();
-                            regenerate()
-                                .catch((error) => {
-                                  console.error(`Error regenerate: ${error}`);
-                                })
+                            regenerate().catch((error) => {
+                              console.error(`Error regenerate: ${error}`);
+                            });
                           }}
                           className="input-action"
                         >

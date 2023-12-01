@@ -1,6 +1,6 @@
 import ExternalAPI from '@server/api/externalapi';
 import cacheManager from '@server/lib/cache';
-import {sortBy} from 'lodash';
+import { sortBy } from 'lodash';
 import type {
   TmdbCollection,
   TmdbCompanySearchResponse,
@@ -805,14 +805,11 @@ class TheMovieDb extends ExternalAPI {
     language?: string;
   }): Promise<TmdbCollection> {
     try {
-      return await this.get<TmdbCollection>(
-          `/collection/${collectionId}`,
-          {
-            params: {
-              language,
-            },
-          }
-      );
+      return await this.get<TmdbCollection>(`/collection/${collectionId}`, {
+        params: {
+          language,
+        },
+      });
     } catch (e) {
       throw new Error(`[TMDB] Failed to fetch collection: ${e.message}`);
     }

@@ -452,10 +452,9 @@ const UserList = () => {
           onCancel={() => setShowBulkEditModal(false)}
           onComplete={() => {
             setShowBulkEditModal(false);
-            revalidate()
-                .catch((error) => {
-                  console.error(`Error revalidate: ${error}`);
-                })
+            revalidate().catch((error) => {
+              console.error(`Error revalidate: ${error}`);
+            });
           }}
           selectedUserIds={selectedUsers}
           users={data.results}
@@ -476,10 +475,9 @@ const UserList = () => {
           onCancel={() => setShowImportModal(false)}
           onComplete={() => {
             setShowImportModal(false);
-            revalidate()
-                .catch((error) => {
-                  console.error(`Error revalidating: ${error}`);
-                })
+            revalidate().catch((error) => {
+              console.error(`Error revalidating: ${error}`);
+            });
           }}
         />
       </Transition>
@@ -514,10 +512,9 @@ const UserList = () => {
               name="sort"
               onChange={(e) => {
                 setCurrentSort(e.target.value as Sort);
-                router.push(router.pathname)
-                    .catch((error) => {
-                      console.error(`Error pushing new route: ${error}`);
-                    })
+                router.push(router.pathname).catch((error) => {
+                  console.error(`Error pushing new route: ${error}`);
+                });
               }}
               value={currentSort}
               className="rounded-r-only"

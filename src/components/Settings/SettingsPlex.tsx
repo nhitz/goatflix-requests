@@ -487,10 +487,9 @@ const SettingsPlex = ({ onComplete }: SettingsPlexProps) => {
                     <button
                       onClick={(e) => {
                         e.preventDefault();
-                        refreshPresetServers()
-                            .catch((error) => {
-                              console.error(`Error refreshPresetServers: ${error}`);
-                            })
+                        refreshPresetServers().catch((error) => {
+                          console.error(`Error refreshPresetServers: ${error}`);
+                        });
                       }}
                       className="input-action"
                     >

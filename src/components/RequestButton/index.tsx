@@ -148,10 +148,9 @@ const RequestButton = ({
           id: 'approve-request',
           text: intl.formatMessage(messages.approverequest),
           action: () => {
-            modifyRequest(activeRequest, 'approve')
-                .catch((error) => {
-                  console.error(`Error approving request: ${error}`);
-                })
+            modifyRequest(activeRequest, 'approve').catch((error) => {
+              console.error(`Error approving request: ${error}`);
+            });
           },
           svg: <CheckIcon />,
         },
@@ -159,10 +158,9 @@ const RequestButton = ({
           id: 'decline-request',
           text: intl.formatMessage(messages.declinerequest),
           action: () => {
-            modifyRequest(activeRequest, 'decline')
-                .catch((error) => {
-                  console.error(`Error declining request: ${error}`);
-                })
+            modifyRequest(activeRequest, 'decline').catch((error) => {
+              console.error(`Error declining request: ${error}`);
+            });
           },
           svg: <XMarkIcon />,
         }
@@ -180,10 +178,9 @@ const RequestButton = ({
             requestCount: activeRequests.length,
           }),
           action: () => {
-            modifyRequests(activeRequests, 'approve')
-                .catch((error) => {
-                  console.error(`Error batch-approving request: ${error}`);
-                })
+            modifyRequests(activeRequests, 'approve').catch((error) => {
+              console.error(`Error batch-approving request: ${error}`);
+            });
           },
           svg: <CheckIcon />,
         },
@@ -193,10 +190,9 @@ const RequestButton = ({
             requestCount: activeRequests.length,
           }),
           action: () => {
-            modifyRequests(activeRequests, 'decline')
-                .catch((error) => {
-                  console.error(`Error batch-declinging requests: ${error}`);
-                })
+            modifyRequests(activeRequests, 'decline').catch((error) => {
+              console.error(`Error batch-declinging requests: ${error}`);
+            });
           },
           svg: <XMarkIcon />,
         }
@@ -230,10 +226,9 @@ const RequestButton = ({
           id: 'approve-4k-request',
           text: intl.formatMessage(messages.approverequest4k),
           action: () => {
-            modifyRequest(active4kRequest, 'approve')
-                .catch((error) => {
-                  console.error(`Error approving 4k request: ${error}`);
-                })
+            modifyRequest(active4kRequest, 'approve').catch((error) => {
+              console.error(`Error approving 4k request: ${error}`);
+            });
           },
           svg: <CheckIcon />,
         },
@@ -241,10 +236,9 @@ const RequestButton = ({
           id: 'decline-4k-request',
           text: intl.formatMessage(messages.declinerequest4k),
           action: () => {
-            modifyRequest(active4kRequest, 'decline')
-                .catch((error) => {
-                  console.error(`Error declining 4k request: ${error}`);
-                })
+            modifyRequest(active4kRequest, 'decline').catch((error) => {
+              console.error(`Error declining 4k request: ${error}`);
+            });
           },
           svg: <XMarkIcon />,
         }
@@ -262,10 +256,9 @@ const RequestButton = ({
             requestCount: active4kRequests.length,
           }),
           action: () => {
-            modifyRequests(active4kRequests, 'approve')
-                .catch((error) => {
-                  console.error(`Error batch-approving 4k requests: ${error}`);
-                })
+            modifyRequests(active4kRequests, 'approve').catch((error) => {
+              console.error(`Error batch-approving 4k requests: ${error}`);
+            });
           },
           svg: <CheckIcon />,
         },
@@ -275,10 +268,9 @@ const RequestButton = ({
             requestCount: active4kRequests.length,
           }),
           action: () => {
-            modifyRequests(active4kRequests, 'decline')
-                .catch((error) => {
-                  console.error(`Error batch-declining 4k requests: ${error}`);
-                })
+            modifyRequests(active4kRequests, 'decline').catch((error) => {
+              console.error(`Error batch-declining 4k requests: ${error}`);
+            });
           },
           svg: <XMarkIcon />,
         }

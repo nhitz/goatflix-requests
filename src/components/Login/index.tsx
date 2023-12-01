@@ -49,10 +49,9 @@ const Login = () => {
       }
     };
     if (authToken) {
-      login()
-          .catch((error) => {
-            console.error(`Error login: ${error}`);
-          })
+      login().catch((error) => {
+        console.error(`Error login: ${error}`);
+      });
     }
   }, [authToken, revalidate]);
 
@@ -60,10 +59,9 @@ const Login = () => {
   // valid user, we redirect the user to the home page as the login was successful.
   useEffect(() => {
     if (user) {
-      router.push('/')
-          .catch((error) => {
-            console.error(`Error pushing new route: ${error}`);
-          })
+      router.push('/').catch((error) => {
+        console.error(`Error pushing new route: ${error}`);
+      });
     }
   }, [user, router]);
 

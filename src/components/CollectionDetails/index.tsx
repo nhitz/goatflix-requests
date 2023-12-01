@@ -215,10 +215,9 @@ const CollectionDetails = ({ collection }: CollectionDetailsProps) => {
         type="collection"
         is4k={is4k}
         onComplete={() => {
-          revalidate()
-              .catch((error) => {
-                console.error(`Error revalidating: ${error}`);
-              })
+          revalidate().catch((error) => {
+            console.error(`Error revalidating: ${error}`);
+          });
           setRequestModal(false);
         }}
         onCancel={() => setRequestModal(false)}

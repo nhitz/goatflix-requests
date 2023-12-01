@@ -12,10 +12,9 @@ const useRouteGuard = (
 
   useEffect(() => {
     if (user && !hasPermission(permission, options)) {
-      router.push('/')
-          .catch((error) => {
-            console.error(`Error router push: ${error}`);
-          })
+      router.push('/').catch((error) => {
+        console.error(`Error router push: ${error}`);
+      });
     }
   }, [user, permission, router, hasPermission, options]);
 };

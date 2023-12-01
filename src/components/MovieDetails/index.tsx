@@ -287,13 +287,14 @@ const MovieDetails = ({ movie }: MovieDetailsProps) => {
         mediaType="movie"
         onClose={() => {
           setShowManager(false);
-          router.push({
-            pathname: router.pathname,
-            query: { movieId: router.query.movieId },
-          })
-              .catch((error) => {
-                console.error(`Error pushing new route: ${error}`);
-              })
+          router
+            .push({
+              pathname: router.pathname,
+              query: { movieId: router.query.movieId },
+            })
+            .catch((error) => {
+              console.error(`Error pushing new route: ${error}`);
+            });
         }}
         revalidate={() => revalidate()}
         show={showManager}

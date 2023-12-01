@@ -76,10 +76,9 @@ const MediaSlider = ({
       size < 5 &&
       (data?.[0]?.totalResults ?? 0) > size * 20
     ) {
-      setSize(size + 1)
-          .catch((error) => {
-            console.error(`Error setting size: ${error}`);
-          })
+      setSize(size + 1).catch((error) => {
+        console.error(`Error setting size: ${error}`);
+      });
     }
 
     if (onNewTitles) {

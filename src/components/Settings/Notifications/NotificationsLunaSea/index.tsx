@@ -225,10 +225,9 @@ const NotificationsLunaSea = () => {
                     disabled={isSubmitting || !isValid || isTesting}
                     onClick={(e) => {
                       e.preventDefault();
-                      testSettings()
-                          .catch((error) => {
-                            console.error(`Error testSettings: ${error}`);
-                          })
+                      testSettings().catch((error) => {
+                        console.error(`Error testSettings: ${error}`);
+                      });
                     }}
                   >
                     <BeakerIcon />

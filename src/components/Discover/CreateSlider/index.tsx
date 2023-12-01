@@ -137,23 +137,20 @@ const CreateSlider = ({ onCreate, slider }: CreateSliderProps) => {
       switch (slider.type) {
         case DiscoverSliderType.TMDB_MOVIE_KEYWORD:
         case DiscoverSliderType.TMDB_TV_KEYWORD:
-          loadDefaultKeywords()
-              .catch((error) => {
-                console.error(`Error loadDefaultKeywords: ${error}`);
-              })
+          loadDefaultKeywords().catch((error) => {
+            console.error(`Error loadDefaultKeywords: ${error}`);
+          });
           break;
         case DiscoverSliderType.TMDB_MOVIE_GENRE:
         case DiscoverSliderType.TMDB_TV_GENRE:
-          loadDefaultGenre()
-              .catch((error) => {
-                console.error(`Error loadDefaultGenre: ${error}`);
-              })
+          loadDefaultGenre().catch((error) => {
+            console.error(`Error loadDefaultGenre: ${error}`);
+          });
           break;
         case DiscoverSliderType.TMDB_STUDIO:
-          loadDefaultCompany()
-              .catch((error) => {
-                console.error(`Error loadDefaultCompany: ${error}`);
-              })
+          loadDefaultCompany().catch((error) => {
+            console.error(`Error loadDefaultCompany: ${error}`);
+          });
           break;
       }
     }
