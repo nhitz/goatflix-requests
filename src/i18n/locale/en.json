@@ -977,7 +977,7 @@
   "components.Setup.setup": "Setup",
   "components.Setup.signinMessage": "Get started by signing in with your Plex account",
   "components.Setup.tip": "Tip",
-  "components.Setup.welcome": "Welcome to Overseerr",
+  "components.Setup.welcome": "Welcome to GoatFlix",
   "components.StatusBadge.managemedia": "Manage {mediaType}",
   "components.StatusBadge.openinarr": "Open in {arr}",
   "components.StatusBadge.playonplex": "Play on Plex",

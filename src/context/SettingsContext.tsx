@@ -9,7 +9,7 @@ export interface SettingsContextProps {
 
 const defaultSettings = {
   initialized: false,
-  applicationTitle: 'Overseerr',
+  applicationTitle: 'GoatFlix',
   applicationUrl: '',
   hideAvailable: false,
   localLogin: true,

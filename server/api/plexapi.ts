@@ -124,9 +124,9 @@ class PlexAPI {
       // },
       options: {
         identifier: settings.clientId,
-        product: 'Overseerr',
-        deviceName: 'Overseerr',
-        platform: 'Overseerr',
+        product: 'GoatFlix',
+        deviceName: 'GoatFlix',
+        platform: 'GoatFlix',
       },
     });
   }
