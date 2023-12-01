@@ -1,4 +1,3 @@
-import { getSettings } from '@server/lib/settings';
 import axios from 'axios';
 import Bowser from 'bowser';
 
@@ -56,11 +55,10 @@ class PlexOAuth {
       clientId = uuid;
     }
 
-    const { applicationTitle } = getSettings().main;
     const browser = Bowser.getParser(window.navigator.userAgent);
     this.plexHeaders = {
       Accept: 'application/json',
-      'X-Plex-Product': applicationTitle,
+      'X-Plex-Product': 'GoatFlix',
       'X-Plex-Version': 'Plex OAuth',
       'X-Plex-Client-Identifier': clientId,
       'X-Plex-Model': 'Plex OAuth',
