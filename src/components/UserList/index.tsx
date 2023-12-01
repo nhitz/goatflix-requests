@@ -473,10 +473,7 @@ const UserList = () => {
           onCancel={() => setShowImportModal(false)}
           onComplete={() => {
             setShowImportModal(false);
-            revalidate()
-                .catch((error) => {
-                  console.error(`Error revalidating: ${error}`);
-                })
+            revalidate();
           }}
         />
       </Transition>
@@ -511,10 +508,7 @@ const UserList = () => {
               name="sort"
               onChange={(e) => {
                 setCurrentSort(e.target.value as Sort);
-                router.push(router.pathname)
-                    .catch((error) => {
-                      console.error(`Error pushing new route: ${error}`);
-                    })
+                router.push(router.pathname);
               }}
               value={currentSort}
               className="rounded-r-only"

@@ -19,10 +19,7 @@ self.addEventListener("install", (event) => {
     })()
   );
   // Force the waiting service worker to become the active service worker.
-  self.skipWaiting()
-      .catch((error) => {
-        console.error(`Error skipWating: ${error}`);
-      })
+  self.skipWaiting();
 });
 
 self.addEventListener("activate", (event) => {
@@ -37,10 +34,7 @@ self.addEventListener("activate", (event) => {
   );
 
   // Tell the active service worker to take control of the page immediately.
-  clients.claim()
-      .catch((error) => {
-        console.error(`Error claim: ${error}`);
-      })
+  clients.claim();
 });
 
 self.addEventListener("fetch", (event) => {
@@ -128,23 +122,14 @@ self.addEventListener('notificationclick', (event) => {
   if (event.action === 'approve') {
     fetch(`/api/v1/request/${notificationData.requestId}/approve`, {
       method: 'POST',
-    })
-        .catch((error) => {
-          console.error(`Error fetch: ${error}`);
-        })
+    });
   } else if (event.action === 'decline') {
     fetch(`/api/v1/request/${notificationData.requestId}/decline`, {
       method: 'POST',
-    })
-        .catch((error) => {
-          console.error(`Error fetch: ${error}`);
-        })
+    });
   }
-
+  
   if (notificationData.actionUrl) {
-    clients.openWindow(notificationData.actionUrl)
-        .catch((error) => {
-          console.error(`Error openWindow: ${error}`);
-        })
+    clients.openWindow(notificationData.actionUrl);
   }
 }, false);
