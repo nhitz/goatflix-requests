@@ -133,7 +133,6 @@ class PlexOAuth {
     ) => {
       try {
         if (!this.pin) {
-          // noinspection ExceptionCaughtLocallyJS
           throw new Error('Unable to poll when pin is not initialized.');
         }
 
