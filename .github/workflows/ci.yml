@@ -1,4 +1,4 @@
-name: Overseerr CI
+name: goatflix-requests CI
 
 on: workflow_dispatch
 #  pull_request:
@@ -9,8 +9,8 @@ on: workflow_dispatch
 #      - develop
 
 jobs:
-  test:
-    name: Lint & Test Build
+  lint:
+    name: Lint Build
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-20.04
     container: node:16.17-alpine
