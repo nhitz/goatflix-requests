@@ -8,7 +8,7 @@ Get commit tag:
 ```
 git rev-parse --short HEAD
 ```
-Build image using the commit tag as a --build-arg
+Build image using the commit tag as --build-arg
 ```
 docker build --platform linux/amd64 --build-arg COMMIT_TAG=6c2aff11 -t repo/image:tag .
 ```
