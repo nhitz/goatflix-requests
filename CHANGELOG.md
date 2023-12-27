@@ -1,3 +1,9 @@
+# [2.0.0](https://github.com/nhitz/goatflix-requests/compare/v1.33.2...v2.0.0) (2023-12-27)
+
+### Features
+
+- **Update oauth application name:** (https://github.com/nhitz/goatflix-requests/pull/13) ([e05fe31](https://github.com/nhitz/goatflix-requests/commit/e05fe31b1483fa9a39ac1e133a7f57a0add38b87))
+
 ## [1.33.2](https://github.com/sct/overseerr/compare/v1.33.1...v1.33.2) (2023-07-28)
 
 ### Bug Fixes
