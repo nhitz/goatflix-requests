@@ -1,5 +1,5 @@
 {
-  "name": "overseerr",
+  "name": "goatflix-requests",
   "version": "1.33.2",
   "private": true,
   "scripts": {
@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sct/overseerr.git"
+    "url": "https://github.com/nhitz/goatflix-requests.git"
   },
   "license": "MIT",
   "dependencies": {
@@ -228,13 +228,11 @@
           "COMMIT_TAG": "$GIT_SHA"
         },
         "imageNames": [
-          "sctx/overseerr",
-          "ghcr.io/sct/overseerr"
+          "liquidgoat/goatflix-requests",
+          "ghcr.io/nhitz/goatflix-requests"
         ],
         "platforms": [
-          "linux/amd64",
-          "linux/arm64",
-          "linux/arm/v7"
+          "linux/amd64"
         ]
       },
       "@semantic-release/github"
