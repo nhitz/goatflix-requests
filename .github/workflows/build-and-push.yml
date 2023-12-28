@@ -2,6 +2,10 @@ name: Build and Push Docker Images
 
 on: workflow_dispatch
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   build_and_push:
     name: Build & Publish Docker Images
