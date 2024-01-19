@@ -7,6 +7,7 @@ https://docs.overseerr.dev/getting-started/installation
 ## Installation:
 
 In a project directory, create a docker-compose.yml:
+
 ```
 version: "3.8"
 
@@ -23,7 +24,9 @@ services:
       - ./config/:/app/config
     restart: unless-stopped
 ```
+
 Start the service:
+
 ```
 docker compose up --detach
 ```
